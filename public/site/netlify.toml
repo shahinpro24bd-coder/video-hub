@@ -1,0 +1,44 @@
+# Netlify config — free plan friendly, no dependency install needed.
+[build]
+  base = "netlify"
+  command = "node build.mjs"
+  publish = "dist-static"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Pretty URLs: /about -> /about.html
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/service"
+  to = "/service.html"
+  status = 200
+
+[[redirects]]
+  from = "/gallery"
+  to = "/gallery.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/appoinment"
+  to = "/appoinment.html"
+  status = 200
+
+[[redirects]]
+  from = "/appointment"
+  to = "/appoinment.html"
+  status = 200
+
+[[redirects]]
+  from = "/home.html"
+  to = "/index.html"
+  status = 301
