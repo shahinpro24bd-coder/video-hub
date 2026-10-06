@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Video Gallery - Dr. Ananta Kumar Bhakta | Orthopedic &amp; Spine Surgeon</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="description" content="Watch videos from Dr. Ananta Kumar Bhakta and add public Facebook or YouTube video links.">
+    <meta name="description" content="Watch videos from Dr. Ananta Kumar Bhakta and watch public Facebook and YouTube videos.">
     <meta property="og:title" content="Video Gallery - Dr. Ananta Kumar Bhakta">
     <meta property="og:description" content="Facebook and YouTube video gallery for Dr. Ananta Kumar Bhakta.">
     <meta property="og:type" content="website">
@@ -38,18 +38,7 @@
     <div class="container-fluid page-header py-5 mb-5"><div class="container text-center py-5"><h1 class="display-1 animated slideInLeft">Video Gallery</h1><nav aria-label="breadcrumb"><ol class="breadcrumb justify-content-center mb-0"><li class="breadcrumb-item"><a class="text-primary" href="index.html">Home</a></li><li class="breadcrumb-item active" aria-current="page">Videos</li></ol></nav></div></div>
     <main class="video-page-main">
         <div class="container">
-            <section class="video-submit-wrap" aria-labelledby="add-video-title">
-                <span class="video-kicker"><i class="fas fa-link"></i> Add a video</span>
-                <h2 id="add-video-title">Share a video link</h2>
-                <p>Paste a YouTube or public Facebook video link. The video will appear here and on the home page.</p>
-                <form id="videoSubmitForm" class="video-submit-form" novalidate>
-                    <label class="visually-hidden" for="videoUrl">Facebook or YouTube video link</label>
-                    <input id="videoUrl" name="url" type="url" inputmode="url" maxlength="2000" placeholder="https://youtube.com/watch?v=..." required autocomplete="url">
-                    <div class="video-honeypot" aria-hidden="true"><label for="videoWebsite">Website</label><input id="videoWebsite" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus me-2"></i>Add video</button>
-                </form>
-                <p id="videoFormStatus" class="video-form-status" role="status" aria-live="polite"></p>
-            </section>
+            
             <div class="video-section-head"><div><span class="video-kicker"><i class="fas fa-play"></i> All videos</span><h2>Watch Videos</h2></div></div>
             <div class="video-grid" data-video-gallery></div>
         </div>
