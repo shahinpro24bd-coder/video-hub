@@ -1,0 +1,15 @@
+{
+  "cleanUrls": false,
+  "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/service", "destination": "/service.html" },
+    { "source": "/videos", "destination": "/video.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/gallery", "destination": "/gallery.html" },
+    { "source": "/appointment", "destination": "/appoinment.html" }
+  ],
+  "headers": [
+    { "source": "/(img|lib|css|js)/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
+    { "source": "/(.*)\\.(webp|png|jpg|css|js|ico)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }] }
+  ]
+}
