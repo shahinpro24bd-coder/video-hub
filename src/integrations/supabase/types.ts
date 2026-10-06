@@ -14,33 +14,7 @@ export type Database = {
   }
   public: {
     Tables: {
-      videos: {
-        Row: {
-          created_at: string
-          id: string
-          provider: string
-          source_url: string
-          submitter_hash: string | null
-          video_key: string | null
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          provider: string
-          source_url: string
-          submitter_hash?: string | null
-          video_key?: string | null
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          provider?: string
-          source_url?: string
-          submitter_hash?: string | null
-          video_key?: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
