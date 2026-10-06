@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Gallery - Dr. Ananta Kumar Bhakta | Orthopedic &amp; Spine Surgeon, Uttara, Dhaka</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Dr. Ananta Kumar Bhakta, Orthopedic &amp; Spine Surgeon Uttara, Dhaka, spine specialist Uttara, Dhaka, spine doctor Uttara, Dhaka, Spine Surgery Uttara, Dhaka, Hicare General Hospital, Popular Diagnostic Center Uttara, Dhaka" name="keywords">
+    <meta content="Dr. Ananta Kumar Bhakta — MBBS, BCS (Health), MS Orthopedics (NITOR), Fellowship in Endoscopic Spine Surgery. Assistant Professor, Orthopedic &amp; Spine Surgeon, Endoscopic Spine Surgeon. Chamber: Popular Diagnostic Center, Jashim Uddin Mor, Sector 4, Uttara. Serial: 01830-995336." name="description">
+
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@500&family=Work+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0463FA;
+            border-radius: 4px;
+        }
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                opacity: 0.15;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.35;
+                transform: scale(1.1);
+            }
+        }
+        .glow-orb {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #0463FA;
+            border-radius: 50%;
+            filter: blur(140px);
+            animation: pulseGlow 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -10;
+        }
+        .orb-1 {
+            top: 0;
+            left: 25%;
+        }
+        .orb-2 {
+            bottom: 2.5rem;
+            right: 25%;
+            animation-delay: 4s;
+            width: 400px;
+            height: 400px;
+            filter: blur(160px);
+        }
+        main {
+            width: 100%;
+            max-width: 90rem;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 2rem;
+        }
+        @media (min-width: 640px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 2rem;
+            }
+        }
+        @media (min-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 2.5rem;
+            }
+        }
+        @media (min-width: 1400px) {
+            main {
+                max-width: 95rem;
+            }
+            .gallery-grid {
+                gap: 3rem;
+            }
+        }
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            cursor: pointer;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .gallery-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(4, 99, 250, 0.45);
+        }
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .gallery-card:hover img {
+            transform: scale(1.1);
+        }
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(4, 99, 250, 0.25);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-card:hover .card-overlay {
+            opacity: 1;
+        }
+        .overlay-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.35rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            transform: scale(0.75);
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .gallery-card:hover .overlay-icon {
+            transform: scale(1);
+        }
+        #lightbox-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 1rem;
+        }
+        #lightbox-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.35rem;
+            border: none;
+            cursor: pointer;
+            z-index: 10000;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .close-btn:hover {
+            background-color: #0463FA;
+            transform: rotate(90deg);
+        }
+        .lightbox-content-box {
+            position: relative;
+            max-width: 90rem;
+            width: 100%;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-inner {
+            overflow: hidden;
+            border-radius: 1.5rem;
+            padding: 0.5rem;
+            box-shadow: 0 25px 50px -12px rgba(4, 99, 250, 0.3);
+            max-width: 100%;
+            max-height: 90vh;
+        }
+        #lightbox-img {
+            max-width: 100%;
+            max-height: 85vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 1rem;
+            display: block;
+            margin: 0 auto;
+        }
+        @media (max-width: 576px) {
+            main {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .gallery-grid {
+                gap: 1.25rem;
+            }
+            .gallery-card {
+                border-radius: 1rem;
+                aspect-ratio: 4 / 3;
+            }
+            .close-btn {
+                top: 1rem;
+                right: 1rem;
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+
+        /* -------- WARNING MODAL (White, Red, #0463FA) -------- */
+        .warning-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            transition: opacity 0.4s ease;
+        }
+        .warning-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .warning-box {
+            background: white;
+            max-width: 520px;
+            width: 100%;
+            padding: 2.5rem 2rem;
+            border-radius: 2rem;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(4, 99, 250, 0.2);
+        }
+        .warning-box .icon-wrap {
+            font-size: 3.5rem;
+            color: #dc3545;
+            margin-bottom: 1rem;
+        }
+        .warning-box h2 {
+            font-weight: 700;
+            color: #dc3545;
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+        .warning-box p {
+            color: #1e1e1e;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .warning-box .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .warning-box .btn-danger-custom {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: 0.25s;
+            box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
+            cursor: pointer;
+            min-width: 130px;
+        }
+        .warning-box .btn-danger-custom:hover {
+            background: #b02a37;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(220, 53, 69, 0.4);
+        }
+        .warning-box .btn-primary-custom {
+            background: #0463FA;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: 0.25s;
+            box-shadow: 0 8px 20px rgba(4, 99, 250, 0.3);
+            cursor: pointer;
+            min-width: 130px;
+        }
+        .warning-box .btn-primary-custom:hover {
+            background: #0350c7;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(4, 99, 250, 0.4);
+        }
+        .warning-box .btn-secondary-custom {
+            background: #e9ecef;
+            color: #1e1e1e;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: 0.25s;
+            cursor: pointer;
+            min-width: 130px;
+        }
+        .warning-box .btn-secondary-custom:hover {
+            background: #d4d9df;
+        }
+        @media (max-width: 480px) {
+            .warning-box {
+                padding: 2rem 1.25rem;
+            }
+            .warning-box h2 {
+                font-size: 1.5rem;
+            }
+            .warning-box .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            .warning-box .btn-danger-custom,
+            .warning-box .btn-primary-custom,
+            .warning-box .btn-secondary-custom {
+                width: 100%;
+                max-width: 220px;
+            }
+        }
+    </style>
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dr. Ananta Kumar Bhakta">
+    <meta property="og:image" content="https://project--c62bf61e-bd69-4e02-8d5e-f5300a2036c3.lovable.app/img/og-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://project--c62bf61e-bd69-4e02-8d5e-f5300a2036c3.lovable.app/img/og-preview.jpg">
+</head>
+
+<body>
+
+    <!-- ===== SPINNER ===== -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <!-- ===== WARNING OVERLAY (Bangla) ===== -->
+    <div id="warningOverlay" class="warning-overlay">
+        <div class="warning-box">
+            <div class="icon-wrap">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h2>গ্যালারি সম্পর্কে</h2>
+            <p>
+                এই গ্যালারিতে চিকিৎসা কার্যক্রম ও অপারেশন সংক্রান্ত ছবি রয়েছে। রোগীর গোপনীয়তা রক্ষা করে ছবিগুলো প্রকাশ করা হয়েছে।
+                <br><br>
+                আপনি কি এগিয়ে যেতে চান?
+            </p>
+            <div class="btn-group">
+                <button class="btn-danger-custom" id="warningProceedBtn">
+                    <i class="fa-solid fa-check me-2"></i> হ্যাঁ, দেখুন
+                </button>
+                <button class="btn-primary-custom" id="warningCancelBtn">
+                    <i class="fa-solid fa-xmark me-2"></i> বাতিল
+                </button>
+            </div>
+        </div>
+    </div>
+
+   <!-- nav -->
+    <div class="container-fluid bg-light sticky-top p-0">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+            <a href="index.html" class="navbar-brand py-2 px-3 me-0" style="background: var(--bs-primary);">
+                <img class="nav-logo-white" src="img/logo-white.png" alt="Dr. Ananta Kumar Bhakta - Orthopedic & Spine Surgeon"
+                    style="height: 70px; width: auto; display: block; object-fit: contain;">
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse p-3" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">Services</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="video2.html" class="nav-item nav-link">Videos</a>
+                </div>
+                <a class="btn btn-sm btn-primary" href="contact.html">Book Appointment</a>
+            </div>
+        </nav>
+    </div>
+    <!-- nav -->
+
+    <!-- ===== PAGE HEADER ===== -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container text-center py-5">
+            <h1 class="display-1 animated slideInLeft">Our Gallery</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center animated slideInLeft mb-0">
+                    <li class="breadcrumb-item"><a class="text-primary" href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ===== BACKGROUND GLOW ===== -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <!-- ===== GALLERY MAIN ===== -->
+    <main>
+        <div class="gallery-grid">
+            <div class="gallery-card glass-panel" onclick="openLightbox(this)">
+                <img src="img/dr-main.jpeg" alt="Dr. Ananta Kumar Bhakta, Orthopedic &amp; Spine Surgeon" loading="lazy">
+                <div class="card-overlay"><div class="overlay-icon glass-panel"><i class="fa-solid fa-expand"></i></div></div>
+            </div>
+            <div class="gallery-card glass-panel" onclick="openLightbox(this)">
+                <img src="img/profile2.jpeg" alt="Dr. Ananta Kumar Bhakta at chamber, Uttara, Dhaka" loading="lazy">
+                <div class="card-overlay"><div class="overlay-icon glass-panel"><i class="fa-solid fa-expand"></i></div></div>
+            </div>
+            <div class="gallery-card glass-panel" onclick="openLightbox(this)">
+                <img src="img/profile3.jpeg" alt="Dr. Ananta Kumar Bhakta, Endoscopic Spine Surgeon" loading="lazy">
+                <div class="card-overlay"><div class="overlay-icon glass-panel"><i class="fa-solid fa-expand"></i></div></div>
+            </div>
+            <div class="gallery-card glass-panel" onclick="openLightbox(this)">
+                <img src="img/profile4.jpeg" alt="Dr. Ananta Kumar Bhakta, Assistant Professor of Orthopedics" loading="lazy">
+                <div class="card-overlay"><div class="overlay-icon glass-panel"><i class="fa-solid fa-expand"></i></div></div>
+            </div>
+            <div class="gallery-card glass-panel" onclick="openLightbox(this)">
+                <img src="img/dr-about.jpg" alt="Dr. Ananta Kumar Bhakta in consultation room" loading="lazy">
+                <div class="card-overlay"><div class="overlay-icon glass-panel"><i class="fa-solid fa-expand"></i></div></div>
+            </div>
+            <div class="gallery-card glass-panel" onclick="openLightbox(this)">
+                <img src="img/svc-endoscopic-spine.jpg" alt="Endoscopic spine surgery" loading="lazy">
+                <div class="card-overlay"><div class="overlay-icon glass-panel"><i class="fa-solid fa-expand"></i></div></div>
+            </div>
+            <div class="gallery-card glass-panel" onclick="openLightbox(this)">
+                <img src="img/svc-disc-prolapse.jpg" alt="Disc prolapse (PLID) treatment" loading="lazy">
+                <div class="card-overlay"><div class="overlay-icon glass-panel"><i class="fa-solid fa-expand"></i></div></div>
+            </div>
+            <div class="gallery-card glass-panel" onclick="openLightbox(this)">
+                <img src="img/svc-spine-trauma.jpg" alt="Spinal injury and trauma care" loading="lazy">
+                <div class="card-overlay"><div class="overlay-icon glass-panel"><i class="fa-solid fa-expand"></i></div></div>
+            </div>
+            <div class="gallery-card glass-panel" onclick="openLightbox(this)">
+                <img src="img/svc-joint-replacement.jpg" alt="Joint replacement surgery" loading="lazy">
+                <div class="card-overlay"><div class="overlay-icon glass-panel"><i class="fa-solid fa-expand"></i></div></div>
+            </div>
+            <div class="gallery-card glass-panel" onclick="openLightbox(this)">
+                <img src="img/svc-arthroscopy.jpg" alt="Arthroscopy procedure" loading="lazy">
+                <div class="card-overlay"><div class="overlay-icon glass-panel"><i class="fa-solid fa-expand"></i></div></div>
+            </div>
+            <div class="gallery-card glass-panel" onclick="openLightbox(this)">
+                <img src="img/svc-trauma.jpg" alt="Orthopedic trauma and fracture management" loading="lazy">
+                <div class="card-overlay"><div class="overlay-icon glass-panel"><i class="fa-solid fa-expand"></i></div></div>
+            </div>
+            <div class="gallery-card glass-panel" onclick="openLightbox(this)">
+                <img src="img/svc-physiotherapy.jpg" alt="Post-operative rehabilitation and physiotherapy" loading="lazy">
+                <div class="card-overlay"><div class="overlay-icon glass-panel"><i class="fa-solid fa-expand"></i></div></div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div id="lightbox-modal">
+        <button class="close-btn glass-panel" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="lightbox-content-box">
+            <div class="lightbox-inner glass-panel">
+                <img id="lightbox-img" src="" alt="Expanded view">
+            </div>
+        </div>
+    </div>
+
+<!-- Footer -->
+<div class="container-fluid footer position-relative bg-dark text-white-50 py-5 mt-5 wow fadeIn"
+    data-wow-delay="0.2s">
+
+    <div class="container py-5">
+
+        <div class="row g-5">
+
+            <!-- Doctor Information -->
+            <div class="col-lg-6 pe-lg-5">
+
+                <a href="index.html" class="navbar-brand">
+                    <img src="img/logo-white.png"
+                        alt="Dr. Ananta Kumar Bhakta"
+                        style="height: 80px;
+                               width: auto;
+                               object-fit: contain;
+                               margin-bottom: 1rem;
+                               ">
+                </a>
+
+                <p>
+                    Dr. Ananta Kumar Bhakta<br>
+                    MBBS, BCS (Health), MS Orthopedics (NITOR)<br>
+                    Orthopedic & Spine Surgeon<br>
+                    Fellowship in Endoscopic Spine Surgery
+                </p>
+
+                <p class="mb-2">
+                    <i class="fa fa-map-marker-alt me-2"></i>
+                    Popular Diagnostic Center, Jashim Uddin Mor, Sector 4, Uttara
+                </p>
+
+                <p class="mb-2">
+                    <i class="fa fa-phone-alt me-2"></i>
+                    01830-995336
+                </p>
+
+                <p class="mb-2">
+                    <i class="fa fa-envelope me-2"></i>
+                    <a href="https://www.facebook.com/orthopedic.doctor.spine.surgeon" target="_blank" rel="noopener" class="text-reset">facebook.com/orthopedic.doctor.spine.surgeon</a>
+                </p>
+
+                <div class="d-flex justify-content-start mt-4">
+
+                    <a class="btn btn-sm-square btn-primary me-3"
+                        href="tel:+8801830995336"
+                        target="_blank">
+
+                        <i class="fas fa-headset"></i>
+
+                    </a>
+
+                    <a class="btn btn-sm-square btn-primary me-3" href="https://www.facebook.com/orthopedic.doctor.spine.surgeon" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-sm-square btn-primary me-3"
+                        href="https://wa.me/8801830995336"
+                        target="_blank">
+
+                        <i class="fab fa-whatsapp"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Footer Links -->
+            <div class="col-lg-6 ps-lg-5">
+
+                <div class="row g-4">
+
+                    <!-- Orthopedic & Spine Services -->
+                    <div class="col-sm-6">
+
+                        <h5 class="text-primary mb-4">
+                            Orthopedic & Spine Services
+                        </h5>
+
+                        <a class="btn btn-link" href="service.html">
+                            Disc Prolapse (PLID)
+                        </a>
+
+                        <a class="btn btn-link" href="service.html">
+                            Low Back &amp; Neck Pain
+                        </a>
+
+                        <a class="btn btn-link" href="service.html">
+                            Joint Replacement Surgery
+                        </a>
+
+                        <a class="btn btn-link" href="service.html">
+                            Orthopedic Trauma &amp; Fracture
+                        </a>
+
+                        <a class="btn btn-link" href="service.html">
+                            Scoliosis &amp; Spine Deformity
+                        </a>
+
+                        <a class="btn btn-link" href="service.html">
+                            Knee Replacement
+                        </a>
+
+                        <a class="btn btn-link" href="service.html">
+                            Endoscopic Spine Surgery
+                        </a>
+
+                    </div>
+
+
+                    <!-- Quick Links -->
+                    <div class="col-sm-6">
+
+                        <h5 class="text-primary mb-4">
+                            Quick Links
+                        </h5>
+
+                        <a class="btn btn-link" href="about.html">
+                            About Us
+                        </a>
+
+                        <a class="btn btn-link" href="contact.html">
+                            Contact Us
+                        </a>
+
+                        <a class="btn btn-link" href="service.html">
+                            Our Services
+                        </a>
+
+                        <a class="btn btn-link" href="index.html">
+                            Home
+                        </a>
+
+                    </div>
+
+
+                    <!-- Chamber Information -->
+                    <div class="col-sm-12">
+
+                        <h5 class="text-primary mb-4">
+                            Chamber Information
+                        </h5>
+
+
+                        <!-- Chamber 1 -->
+                        <p class="text-white-50 mb-3">
+                            <strong class="text-white">Popular Diagnostic Center, Jashim Uddin Mor, Sector 4, Uttara</strong><br>
+                            <i class="fas fa-calendar-alt me-2"></i>Sunday - Thursday<br>
+                            <i class="fas fa-clock me-2"></i>6:00 PM - 8:00 PM<br>
+                            <i class="fas fa-map-marker-alt me-2"></i>Jashim Uddin Mor, Sector 4, Uttara, Dhaka
+                        </p>
+
+                        <p class="text-white-50 mb-3">
+                            <strong class="text-white">Hicare General Hospital, Lake Drive Road, Sector 7, Uttara</strong><br>
+                            <i class="fas fa-user-md me-2"></i>Assistant Professor (Orthopedics)<br>
+                            <i class="fas fa-hospital me-2"></i>General Building, Room 201 | 8:00 PM - 10:00 PM (Friday &amp; Saturday Off)<br>
+                            <i class="fas fa-map-marker-alt me-2"></i>Uttara, Dhaka
+                        </p>
+
+                        <p class="text-white-50 mb-0">
+                            <strong class="text-white">Ahmed Medical Center, Narsingdi</strong><br>
+                            <i class="fas fa-phone-alt me-2"></i>Serial: 01830-995336<br>
+                            <i class="fas fa-headset me-2"></i>Opposite Narsingdi Sadar Hospital | Friday 10:00 AM - 2:00 PM<br>
+                            <i class="fas fa-envelope me-2"></i><a href="https://www.facebook.com/orthopedic.doctor.spine.surgeon" target="_blank" rel="noopener" class="text-reset">facebook.com/orthopedic.doctor.spine.surgeon</a>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Copyright Footer -->
+<div class="container-fluid bg-dark text-white border-top border-secondary py-4 wow fadeIn"
+    data-wow-delay="0.1s">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+
+                &copy;
+
+                <a class="border-bottom"
+                    href="tel:+8801830995336">
+
+                    Dr. Ananta Kumar Bhakta - Orthopedic & Spine Surgeon
+
+                </a>,
+
+                All Right Reserved.
+
+            </div>
+
+
+            <div class="col-md-6 text-center text-md-end">
+
+                Designed By
+
+                <a class="border-bottom"
+                    href="https://www.facebook.com/orthopedic.doctor.spine.surgeon"
+                    target="_blank">
+
+                    Aurazone
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- footer -->
+
+
+
+
+        
+    <!-- ===== BACK TO TOP ===== -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ----- LIGHTBOX -----
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        lightboxModal.addEventListener('click', function(e) {
+            if (e.target === lightboxModal) closeLightbox();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+        lightboxImg.addEventListener('click', function(e) { e.stopPropagation(); });
+
+        // ----- WARNING OVERLAY (Bangla) -----
+        (function() {
+            const overlay = document.getElementById('warningOverlay');
+            const proceedBtn = document.getElementById('warningProceedBtn');
+            const cancelBtn = document.getElementById('warningCancelBtn');
+
+            // prevent scroll while warning is visible
+            document.body.style.overflow = 'hidden';
+
+            function dismissWarning() {
+                overlay.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                // remove from DOM after transition
+                setTimeout(() => { overlay.style.display = 'none'; }, 500);
+            }
+
+            proceedBtn.addEventListener('click', function() {
+                dismissWarning();
+            });
+
+            cancelBtn.addEventListener('click', function() {
+                // redirect to home
+                window.location.href = 'index.html';
+            });
+
+            // optional: if user clicks outside the box, treat as cancel? we'll cancel to home.
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    window.location.href = 'index.html';
+                }
+            });
+        })();
+    </script>
+
+    <!-- ===== JS LIBRARIES ===== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
