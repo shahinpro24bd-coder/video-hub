@@ -36,6 +36,13 @@
       "when": 1791968492491,
       "tag": "0004_add_delete_video_rpc",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1791968751918,
+      "tag": "0005_video_admin_password",
+      "breakpoints": true
     }
   ]
 }

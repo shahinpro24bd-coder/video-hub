@@ -46,8 +46,17 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      check_video_password: { Args: { p_password: string }; Returns: boolean }
       delete_video: { Args: { p_id: string }; Returns: undefined }
+      delete_video_secure: {
+        Args: { p_id: string; p_password: string }
+        Returns: undefined
+      }
       submit_video: { Args: { p_url: string }; Returns: Json }
+      submit_video_secure: {
+        Args: { p_password: string; p_url: string }
+        Returns: Json
+      }
     }
     Enums: {
       [_ in never]: never
