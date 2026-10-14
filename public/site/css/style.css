@@ -686,3 +686,6 @@ input:focus, select:focus, textarea:focus {
 }
 .video-delete-btn:hover { background: #b02a37; }
 .video-delete-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.video-gate{min-height:70vh;display:flex;align-items:center;justify-content:center;padding:40px 16px}
+.video-gate-box{width:100%;max-width:380px;background:#fff;padding:32px;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.12);text-align:center}
+.video-gate-error{color:#dc3545;margin:12px 0 0;min-height:1.2em}
