@@ -24,6 +24,33 @@
 
     // Delete buttons are only shown on the page that has the add-video form (video2.html).
     var allowDelete = !!document.getElementById('videoSubmitForm');
+    var adminPass = '';
+    try { adminPass = sessionStorage.getItem('videoAdminPass') || ''; } catch (e) {}
+    if (allowDelete) {
+        var mainEl = document.querySelector('main') || document.body;
+        mainEl.style.display = 'none';
+        var gate = document.createElement('div');
+        gate.className = 'video-gate';
+        gate.innerHTML = '<form class="video-gate-box"><h3>Enter Password</h3><p>This page is protected.</p>' +
+            '<input type="password" class="form-control" placeholder="Password" required autocomplete="current-password">' +
+            '<button type="submit" class="btn btn-primary w-100 mt-3">Enter</button><p class="video-gate-error"></p></form>';
+        mainEl.parentNode.insertBefore(gate, mainEl);
+        var gForm = gate.querySelector('form'), gInput = gate.querySelector('input'), gErr = gate.querySelector('.video-gate-error');
+        var tryPass = function (pw, silent) {
+            return fetch(DB_URL + '/rest/v1/rpc/check_video_password', { method: 'POST', headers: DB_HEADERS, body: JSON.stringify({ p_password: pw }) })
+                .then(function (r) { return r.json(); })
+                .then(function (ok) {
+                    if (ok === true) {
+                        adminPass = pw;
+                        try { sessionStorage.setItem('videoAdminPass', pw); } catch (e) {}
+                        gate.remove(); mainEl.style.display = '';
+                    } else if (!silent) { gErr.textContent = 'Wrong password. Please try again.'; }
+                })
+                .catch(function () { if (!silent) gErr.textContent = 'Could not check the password. Please try again.'; });
+        };
+        gForm.addEventListener('submit', function (e) { e.preventDefault(); gErr.textContent = ''; tryPass(gInput.value, false); });
+        if (adminPass) tryPass(adminPass, true);
+    }
 
     function videoCard(video) {
         var provider = video.provider === 'youtube' ? 'YouTube' : 'Facebook';
@@ -40,10 +67,10 @@
     function deleteVideo(id, button) {
         if (!confirm('Delete this video?')) return;
         button.disabled = true;
-        fetch(DB_URL + '/rest/v1/rpc/delete_video', {
+        fetch(DB_URL + '/rest/v1/rpc/delete_video_secure', {
             method: 'POST',
             headers: DB_HEADERS,
-            body: JSON.stringify({ p_id: id })
+            body: JSON.stringify({ p_id: id, p_password: adminPass })
         })
             .then(function (response) { if (!response.ok) throw new Error(); return loadVideos(); })
             .catch(function () { alert('The video could not be deleted. Please try again.'); button.disabled = false; });
@@ -100,10 +127,10 @@
             status.className = 'video-form-status';
             status.textContent = 'Adding video...';
             if (website && website.value) { button.disabled = false; return; }
-            fetch(DB_URL + '/rest/v1/rpc/submit_video', {
+            fetch(DB_URL + '/rest/v1/rpc/submit_video_secure', {
                 method: 'POST',
                 headers: DB_HEADERS,
-                body: JSON.stringify({ p_url: value })
+                body: JSON.stringify({ p_url: value, p_password: adminPass })
             })
                 .then(function (response) { return response.json().then(function (body) { return { ok: response.ok, body: body }; }); })
                 .then(function (result) {
