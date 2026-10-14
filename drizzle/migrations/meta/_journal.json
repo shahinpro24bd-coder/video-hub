@@ -29,6 +29,13 @@
       "when": 1791286055623,
       "tag": "0003_submit_video_rpc",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1791968492491,
+      "tag": "0004_add_delete_video_rpc",
+      "breakpoints": true
     }
   ]
 }
