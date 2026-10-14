@@ -673,3 +673,16 @@ input:focus, select:focus, textarea:focus {
     .video-submit-form button { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { .video-loader { animation: none; } }
+
+.video-delete-btn {
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.video-delete-btn:hover { background: #b02a37; }
+.video-delete-btn:disabled { opacity: 0.6; cursor: not-allowed; }

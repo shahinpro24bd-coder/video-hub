@@ -46,6 +46,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      delete_video: { Args: { p_id: string }; Returns: undefined }
       submit_video: { Args: { p_url: string }; Returns: Json }
     }
     Enums: {

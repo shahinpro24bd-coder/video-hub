@@ -22,13 +22,31 @@
         return 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent(video.source_url) + '&show_text=false&width=800';
     }
 
+    // Delete buttons are only shown on the page that has the add-video form (video2.html).
+    var allowDelete = !!document.getElementById('videoSubmitForm');
+
     function videoCard(video) {
         var provider = video.provider === 'youtube' ? 'YouTube' : 'Facebook';
+        var deleteBtn = allowDelete
+            ? '<button type="button" class="video-delete-btn" data-video-id="' + escapeHtml(video.id) + '" title="Delete video"><i class="fas fa-trash"></i> Delete</button>'
+            : '';
         return '<article class="video-card">' +
             '<div class="video-frame"><iframe src="' + escapeHtml(embedUrl(video)) + '" title="' + provider + ' video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>' +
             '<div class="video-card-meta"><span><i class="fab fa-' + (video.provider === 'youtube' ? 'youtube' : 'facebook-f') + '"></i> ' + provider + '</span>' +
-            '<a href="' + escapeHtml(video.source_url) + '" target="_blank" rel="noopener">Watch original <i class="fas fa-arrow-up-right-from-square"></i></a></div>' +
+            '<a href="' + escapeHtml(video.source_url) + '" target="_blank" rel="noopener">Watch original <i class="fas fa-arrow-up-right-from-square"></i></a>' + deleteBtn + '</div>' +
             '</article>';
+    }
+
+    function deleteVideo(id, button) {
+        if (!confirm('Delete this video?')) return;
+        button.disabled = true;
+        fetch(DB_URL + '/rest/v1/rpc/delete_video', {
+            method: 'POST',
+            headers: DB_HEADERS,
+            body: JSON.stringify({ p_id: id })
+        })
+            .then(function (response) { if (!response.ok) throw new Error(); return loadVideos(); })
+            .catch(function () { alert('The video could not be deleted. Please try again.'); button.disabled = false; });
     }
 
     function render(videos) {
@@ -40,6 +58,11 @@
                 return;
             }
             container.innerHTML = items.map(videoCard).join('');
+            if (allowDelete) {
+                container.querySelectorAll('.video-delete-btn').forEach(function (btn) {
+                    btn.addEventListener('click', function () { deleteVideo(btn.getAttribute('data-video-id'), btn); });
+                });
+            }
         });
     }
 
